@@ -279,6 +279,8 @@ if __name__ == "__main__":
         num_workers=num_workers,
         test_mode=True,
     )
-    prediction = trainer.predict(model, testloader)
+    prediction = trainer.predict(ckpt_path="best", testloader)
     prediction = torch.cat(prediction, dim=0).cpu().numpy()
     np.save(checkpoint_path + "/test_prediction", prediction)
+    
+    tools.generate_submission_txt(prediction, test_input_path, "./final_prediction.txt")
