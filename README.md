@@ -16,4 +16,4 @@ pip install -e .
 
 ## Data
 
-Download two data files
+Create a new folder ```data``` under the root directory. Download two data files ```train_sequences.txt``` and ```test_sequences.txt``` under the ```data``` folder.
