@@ -257,7 +257,7 @@ if __name__ == "__main__":
         checkpoint_path, monitor="val_corr", mode="max", save_top_k=2
     )
     lr_monitor = LearningRateMonitor()
-    logger = TensorBoardLogger(log_path + "/tf_logs", name="residual_cnn")
+    logger = TensorBoardLogger(log_path + "/tf_logs", name="hybrid_cnn")
 
     trainer = pl.Trainer(
         devices=1,
