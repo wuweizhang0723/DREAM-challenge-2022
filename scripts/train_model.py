@@ -27,7 +27,7 @@ if __name__ == "__main__":
         "--model_type", type=str, default="Hybrid_CNN", help="Model type"
     )
     parser.add_argument("--in_folder", default="./data/", help="the input folder")
-    parser.add_argument("--out_folder", default=".output/hybridCNN/", help="the output folder")
+    parser.add_argument("--out_folder", default="./output/hybridCNN/", help="the output folder")
     parser.add_argument("--batch_size", help="the batch size", type=int, default=512)
     parser.add_argument("--epochs", help="the number of epochs", default=100)
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument("--kernel_length", help="the length of the kernels", default=5)
     parser.add_argument("--pooling_size", help="the size of the pooling", default=2)
     parser.add_argument("--split_ratio", help="the split ratio", default=0.99)
-    parser.add_argument("--mixup", help="the mixup augmentation", default=False)
+    parser.add_argument("--mixup", help="the mixup augmentation", default="False")
     parser.add_argument("--loss", help="the loss function", default="mse")
 
     parser.add_argument(
