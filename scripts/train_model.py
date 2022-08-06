@@ -277,7 +277,7 @@ if __name__ == "__main__":
         num_workers=num_workers,
         test_mode=True,
     )
-    prediction = trainer.predict(ckpt_path="best", testloader)
+    prediction = trainer.predict(ckpt_path="best", dataloaders=testloader)
     prediction = torch.cat(prediction, dim=0).cpu().numpy()
     np.save(prediction_path + "/test_prediction", prediction)
     
