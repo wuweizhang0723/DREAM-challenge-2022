@@ -27,4 +27,4 @@ pip install -e .
 
 ## Train Model
 
-* Run ```scripts/train_model.py``` in terminal: ```python scripts/train_model.py```
+* Run ```scripts/train_model.py``` in terminal: ```python scripts/train_model.py >> output.out```
