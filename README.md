@@ -1,4 +1,8 @@
 # DREAM-challenge-2022
+* ```final_prediction.txt``` is our prediction for test data.
+* ```final_report.pdf``` is our final report.
+* ```best_checkpoint.ckpt``` is the model checkpoint that is used to make prediction for test data
+* If you want to retrain our model, follow the instructions below:
 
 ## Setup the environment
 
