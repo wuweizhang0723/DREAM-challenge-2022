@@ -11,6 +11,7 @@ conda env create --name seq2exp --file environment.yaml
 Install the seq2exp package we will use for this project.
 
 ```bash
+conda activate seq2exp
 pip install -e .
 ```
 
