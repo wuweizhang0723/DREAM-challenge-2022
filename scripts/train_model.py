@@ -260,7 +260,7 @@ if __name__ == "__main__":
     logger = TensorBoardLogger(log_path + "/tf_logs", name="residual_cnn")
 
     trainer = pl.Trainer(
-        devices="auto",
+        devices=1,
         accelerator="gpu",
         callbacks=[es, checkpoint_callback, lr_monitor],
         benchmark=False,
