@@ -24,11 +24,11 @@ if __name__ == "__main__":
     # Parse arguments add all hyperparameters to the parser
     parser = argparse.ArgumentParser(description="Model Hyperparameters")
     parser.add_argument(
-        "--model_type", type=str, default="Residual_CNN", help="Model type"
+        "--model_type", type=str, default="Hybrid_CNN", help="Model type"
     )
-    parser.add_argument("--in_folder", help="the input folder")
-    parser.add_argument("--out_folder", help="the output folder")
-    parser.add_argument("--batch_size", help="the batch size", type=int, default=128)
+    parser.add_argument("--in_folder", default="./data/", help="the input folder")
+    parser.add_argument("--out_folder", default=".output/hybridCNN/", help="the output folder")
+    parser.add_argument("--batch_size", help="the batch size", type=int, default=512)
     parser.add_argument("--epochs", help="the number of epochs", default=100)
 
     parser.add_argument("--pooling_type", help="the pooling type", default="avg")
@@ -36,22 +36,22 @@ if __name__ == "__main__":
         "--conv_layers",
         help="the number of the large convolutional layers",
         type=int,
-        default=3,
+        default=6,
     )
     parser.add_argument(
         "--conv_repeat",
         help="the number of the convolutional conv block",
         type=int,
-        default=2,
+        default=3,
     )
     parser.add_argument(
-        "--kernel_number", help="the number of the kernels", default=2048
+        "--kernel_number", help="the number of the kernels", default=1024
     )
     parser.add_argument("--kernel_size", help="the size of the kernels", default=3)
     parser.add_argument("--sample_rate", help="the sample rate", default=1)
-    parser.add_argument("--kernel_length", help="the length of the kernels", default=10)
+    parser.add_argument("--kernel_length", help="the length of the kernels", default=5)
     parser.add_argument("--pooling_size", help="the size of the pooling", default=2)
-    parser.add_argument("--split_ratio", help="the split ratio", default=0.9)
+    parser.add_argument("--split_ratio", help="the split ratio", default=0.99)
     parser.add_argument("--mixup", help="the mixup augmentation", default=False)
     parser.add_argument("--loss", help="the loss function", default="mse")
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         default="ReduceLROnPlateau",
     )
 
-    parser.add_argument("--dilation_list", help="the list of dilation values", default="1 2 3 4")
+    parser.add_argument("--dilation_list", help="the list of dilation values", default="1 2 4 6")
     args = parser.parse_args()
 
     model_type = args.model_type
@@ -144,9 +144,7 @@ if __name__ == "__main__":
         + "_"
         + str(first_conv_activation)
         + "_"
-        + str(dilated_conv_layers)
-        + "_"
-        + str(dilation)
+        + str(dilation_list)
         + "_"
         + str(float_weight)
         + "_"
@@ -281,6 +279,6 @@ if __name__ == "__main__":
     )
     prediction = trainer.predict(ckpt_path="best", testloader)
     prediction = torch.cat(prediction, dim=0).cpu().numpy()
-    np.save(checkpoint_path + "/test_prediction", prediction)
+    np.save(prediction_path + "/test_prediction", prediction)
     
     tools.generate_submission_txt(prediction, test_input_path, "./final_prediction.txt")
