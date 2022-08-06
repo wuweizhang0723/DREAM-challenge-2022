@@ -1,4 +1,8 @@
 # DREAM-challenge-2022
+* ```final_prediction.txt``` is our prediction for test data.
+* ```final_report.pdf``` is our final report.
+* ```best_checkpoint.ckpt``` is the model checkpoint that is used to make prediction for test data
+* If you want to retrain our model, follow the instructions below:
 
 ## Setup the environment
 
@@ -11,6 +15,7 @@ conda env create --name seq2exp --file environment.yaml
 Install the seq2exp package we will use for this project.
 
 ```bash
+conda activate seq2exp
 pip install -e .
 ```
 
@@ -22,4 +27,4 @@ pip install -e .
 
 ## Train Model
 
-* Run ```scripts/train_model.py``` in terminal: ```python scripts/train_model.py```
+* Run ```scripts/train_model.py``` in terminal: ```python scripts/train_model.py >> output.out```
