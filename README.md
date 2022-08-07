@@ -1,4 +1,4 @@
-# DREAM-challenge-2022
+# DREAM-challenge-2022  (Team Name: wztr)
 * ```final_prediction.txt``` is our prediction for test data.
 * ```final_report.pdf``` is our final report.
 * ```best_checkpoint.ckpt``` is the model checkpoint that is used to make prediction for test data
@@ -28,3 +28,4 @@ pip install -e .
 ## Train Model
 
 * Run ```scripts/train_model.py``` in terminal: ```python scripts/train_model.py >> output.out```
+* After training is done, a txt file ```final_prediction_2.txt``` will be generated under root directory.
