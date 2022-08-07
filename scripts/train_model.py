@@ -279,6 +279,6 @@ if __name__ == "__main__":
     )
     prediction = trainer.predict(ckpt_path="best", dataloaders=testloader)
     prediction = torch.cat(prediction, dim=0).cpu().numpy()
-    np.save(prediction_path + "/test_prediction", prediction)
+    # np.save(prediction_path + "/test_prediction", prediction)
     
     tools.generate_submission_txt(prediction, test_input_path, "./final_prediction_2.txt")
