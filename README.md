@@ -1,4 +1,5 @@
 # DREAM-challenge-2022  (Team Name: wztr)
+### Challenge Website: https://www.synapse.org/#!Synapse:syn28469146/wiki/
 * ```final_prediction.txt``` is our prediction for test data.
 * ```final_report.pdf``` is our final report.
 * ```best_checkpoint.ckpt``` is the model checkpoint that is used to make prediction for test data
